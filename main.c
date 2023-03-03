@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:29:04 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/03 15:18:14 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/03 17:03:44 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,58 @@ int	main(void)
 	printf("\n%d characters printed.\n", nc_printed);
 	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int intmax:\033[32m %u \033[0m", uintmax);
 	printf("\n%d characters printed.\n", nc_printed);
+
+	printf("\n\n5. [POINTER TEST %%p]");
+	int a = 5;
+	char ch = 'c';
+	char *str3 = "Hello";
+
+	int *ptr1 = &a;
+	char *ptr2 = &ch;
+	char *ptr3 = str3;
+	char *ptr4 = NULL;
+
+	nc_printed = printf("\n\033[34mPRINTF\033[0m pointer int a:\033[34m %p \033[0m", ptr1);
+	//printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\n\033[32mFT_PRINTF\033[0m pointer int a:\033[32m %p \033[0m",ptr1);
+	//printf("\n%d characters printed.\n", nc_printed);
+	
+	nc_printed = printf("\n\033[34mPRINTF\033[0m pointer char ch:\033[34m %p \033[0m", ptr2);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m pointer char ch:\033[32m %p \033[0m", ptr2);
+	printf("\n%d characters printed.\n", nc_printed);
+
+	nc_printed = printf("\033[34mPRINTF\033[0m pointer char *str3:\033[34m %p \033[0m", ptr3);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m pointer char *str3:\033[32m %p \033[0m", ptr3);
+	printf("\n%d characters printed.\n", nc_printed);
+
+	nc_printed = printf("\033[34mPRINTF\033[0m pointer char *str3:\033[34m %p \033[0m", ptr4);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m pointer char *str3:\033[32m %p \033[0m", ptr4);
+	printf("\n%d characters printed.\n", nc_printed);
+
+	printf("\n\n6. [HEXADECIMAL TEST %%x or %%X]");
+	int hex = 12345;
+	int hex2 = 0;
+	int hex3 = -12345;
+
+
+	nc_printed = printf("\n\033[34mPRINTF\033[0m int hex:\033[34m %x \033[0m", hex);
+	//printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\n\033[32mFT_PRINTF\033[0m int hex:\033[32m %x \033[0m",hex);
+	//printf("\n%d characters printed.\n", nc_printed);
+	
+	nc_printed = printf("\n\033[34mPRINTF\033[0m int hex2:\033[34m %X \033[0m", hex2);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int hex 2:\033[32m %X \033[0m", hex2);
+	printf("\n%d characters printed.\n", nc_printed);
+
+	nc_printed = printf("\033[34mPRINTF\033[0m pointer int hex 3:\033[34m %x \033[0m", hex3);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int hex 3:\033[32m %x \033[0m", hex3);
+	printf("\n%d characters printed.\n", nc_printed);
+
 	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:18:37 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/03 14:46:04 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/03 17:00:50 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,14 @@ int	ft_crossroad(va_list args, char identifier)
 		nc_printed = ft_putchar(va_arg(args, int));
 	else if (identifier == 's')
 		nc_printed = ft_putstr(va_arg(args, char *));
+	else if (identifier == 'p')
+		nc_printed = ft_putptr(va_arg(args, void *));
 	else if (identifier == 'd' || identifier == 'i')
 		nc_printed = ft_putnbr(va_arg(args, int));
 	else if (identifier == 'u')
 		nc_printed = ft_putnbr_unsigned(va_arg(args, unsigned int));
+	else if (identifier == 'x' || identifier == 'X')
+		nc_printed = ft_putnbr_hex(va_arg(args, int), identifier);
 	else if (identifier == '%')
 		nc_printed = ft_putchar('%');
 	return (nc_printed);
