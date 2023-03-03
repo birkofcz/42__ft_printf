@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:29:04 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/02 17:10:25 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/03 15:18:14 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,71 @@ int	main(void)
 	char c = 'a';
 	char *str = "Hello";
 	char *str2 = NULL;
+	int pos = 12345;
+	int neg = -12345;
+	int intmin = -2147483648;
+	int intmax = 2147483647;
+	int zero = 0;
+	unsigned int upos = 12345;
+	unsigned int uneg = -12345;
+	unsigned int uintmin = -2147483648;
+	unsigned int uintmax = 2147483647;
+	unsigned int uzero = 0;
+
 
 	printf("\033[32m"); // sets color to green
 	printf(" \n--- [FT_PRINTF TESTER] --- \n");
 	printf("\033[0m"); // reste color to default
 
-	printf("\n1. [CHARACTER TEST]\nCharacter = '%c'.\n", c);
+	printf("\n1. [CHARACTER TEST %%c]\nCharacter = '%c'.\n", c);
 	nc_printed = ft_printf("We are ft_printfING a character:\033[32m %c \033[0m", c);
 	printf("\n%d characters printed.", nc_printed);
 
-	printf("\n\n2. [STRING TEST]\nstring = '%s'.\n", str);
+	printf("\n\n2. [STRING TEST %%s]\nstring = '%s'.\n", str);
 	nc_printed = ft_printf("We are ft_printfING a string:\033[32m %s \033[0m", str);
 	printf("\n%d characters printed.", nc_printed);
 	printf("\n");
 	nc_printed = ft_printf("We are ft_printfING a NULL string:\033[32m %s \033[0m", (void *)str2);
 	printf("\n%d characters printed.", nc_printed);
 
+	printf("\n\n3. [INT AND DECIMAL TEST %%i OR %%d]\nint pos = %i.\nint neg = %i\nint zero = %i\nint intmin = %i\nint inmax = %i\n", pos, neg, zero, intmin, intmax);
+	nc_printed = ft_printf("We are ft_printfING a int pos:\033[32m %i \033[0m", pos);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("We are ft_printfING a int neg:\033[32m %i \033[0m", neg);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("We are ft_printfING a int zero:\033[32m %i \033[0m", zero);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("We are ft_printfING a int intmin:\033[32m %i \033[0m", intmin);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("We are ft_printfING a int intmax:\033[32m %i \033[0m", intmax);
+	printf("\n%d characters printed.", nc_printed);
+
+	printf("\n\n4. [UNSIGNED DECIMAL TEST %%u]\nuint upos = %i.\nuint uneg = %i\nuint uzero = %i\nuint uintmin = %i\nuint uintmax = %i\n", pos, neg, zero, intmin, intmax);
+	
+	nc_printed = printf("\n\033[34mPRINTF\033[0m int pos:\033[34m %u \033[0m", upos);
+	//printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\n\033[32mFT_PRINTF\033[0m int pos:\033[32m %u \033[0m", upos);
+	//printf("\n%d characters printed.\n", nc_printed);
+	
+	nc_printed = printf("\n\033[34mPRINTF\033[0m int neg:\033[34m %u \033[0m", uneg);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int neg:\033[32m %u \033[0m", uneg);
+	printf("\n%d characters printed.\n", nc_printed);
+
+	nc_printed = printf("\033[34mPRINTF\033[0m int zero:\033[34m %u \033[0m", uzero);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int zero:\033[32m %u \033[0m", uzero);
+	printf("\n%d characters printed.\n", nc_printed);
+
+	nc_printed = printf("\033[34mPRINTF\033[0m int intmin:\033[34m %u \033[0m", uintmin);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int intmin:\033[32m %u \033[0m", uintmin);
+	printf("\n%d characters printed.\n", nc_printed);
+
+	nc_printed = printf("\033[34mPRINTF\033[0m int intmax:\033[34m %u \033[0m", uintmax);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int intmax:\033[32m %u \033[0m", uintmax);
+	printf("\n%d characters printed.\n", nc_printed);
+	
 	return (0);
 }

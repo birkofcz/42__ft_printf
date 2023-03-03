@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 16:20:41 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/03 13:36:50 by sbenes           ###   ########.fr       */
+/*   Created: 2023/03/03 15:30:30 by sbenes            #+#    #+#             */
+/*   Updated: 2023/03/03 15:31:11 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-DELETE UTILS BEFORE SUBMit - it is in makefile and libft
-*/
-
-size_t	ft_strlen(const char *s)
+// Bot solution to work with
+void	ft_putnbr_hex(unsigned long long n)
 {
-	size_t	i;
+	char	*hex;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	hex = "0123456789abcdef";
+	if (n >= 16)
+		ft_putnbr_hex(n / 16);
+	write(1, &hex[n % 16], 1);
 }
 
-// DELETE TO HERE
-
-int	ft_putstr(char *s)
+void	ft_putptr(void *ptr)
 {
-	size_t i;
-	if (!s)
-		s = "(null)";
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-	return (ft_strlen(s));
+	unsigned long long	ptr_val;
+
+	ptr_val = (unsigned long long)ptr;
+	write(1, "0x", 2);
+	ft_putnbr_hex(ptr_val);
 }
