@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:20:41 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/03 13:36:50 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/04 16:01:50 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 DELETE UTILS BEFORE SUBMit - it is in makefile and libft
 */
 
-size_t	ft_strlen(const char *s)
+/* size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -24,11 +24,11 @@ size_t	ft_strlen(const char *s)
 	while (s[i] != '\0')
 		i++;
 	return (i);
-}
+} */
 
 // DELETE TO HERE
 
-int	ft_putstr(char *s)
+int	ft_putstr(const char *s)
 {
 	size_t i;
 	if (!s)

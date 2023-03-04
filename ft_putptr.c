@@ -6,33 +6,24 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:30:30 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/03 17:01:33 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/04 16:16:41 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_nbrlen_phex(unsigned long long nb)
-{
-	int		i;
-
-	i = 1;
-	while (nb > 15)
-	{
-		nb = nb / 16;
-		i++;
-	}
-	return (i);
-}
-
-void	ft_putnbr_phex(unsigned long long nb)
+int	ft_putnbr_phex(unsigned long long nb)
 {
 	char	*hex;
+	int		len;
 
+	len = 0;
 	hex = "0123456789abcdef";
 	if (nb >= 16)
-		ft_putnbr_phex(nb / 16);
+		len += ft_putnbr_phex(nb / 16);
 	write(1, &hex[nb % 16], 1);
+	len++;
+	return (len);
 }
 
 /*
@@ -40,35 +31,34 @@ void	ft_putnbr_phex(unsigned long long nb)
 
 To print the memory address of a value.
 Memory adress is constructed as "0x" + hexadecimal number representing the pointer value. 
-Start
+
+START
 |
-Make sure there is ptr. If ptr = NULL, function needs to print "(nil)".
+Make sure there is ptr. If ptr = NULL, function needs to print "(nil)". Returns the n of bytes written from write.
 |
 Cannot get the pointer value directly, we need to cast (unsigned long long) to ptr 
 and store it as unsigned long long ptr_value. 
 Unsigned long long is int datatype ensuring that it will take whatever size of 
 pointer value, which is system dependent. 
 |
-Write  "0x" to the stdout.
+Write "0x" to the stdout. It always starts with 0x followed by hexadecimal number.
 |
 Send pointer value (ptr_value) to the function which will convert it to hexadecimal (base 16) and write to stdout.
 |
-Return number of characters printed from the ft_nbrlen_hex function.
-
+Return number of characters printed (len - measured in ft_putnbr_phex) + 2 for 0x.
+|
+END
 */
 int	ft_putptr(void *ptr)
 {
 	unsigned long long	ptr_value;
-	char *s;
+	int		len;
 
+	len = 0;
 	if (!ptr)
-	{
-		s = "(nil)";
-		ft_putstr(s);
-		return (ft_strlen(s));
-	}
+		return (write(1, "(nil)", 5));
 	ptr_value = (unsigned long long)ptr;
 	write(1, "0x", 2);
-	ft_putnbr_phex(ptr_value);
-	return (ft_nbrlen_hex(ptr_value));
+	len = ft_putnbr_phex(ptr_value);
+	return (len + 2);
 }

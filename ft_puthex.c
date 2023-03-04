@@ -6,33 +6,11 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:41:35 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/04 13:49:53 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/04 15:33:25 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-ft_nbrlen_hex: To measure the lenght of the number.
-*/
-
-int	ft_nbrlen_hex(int nb)
-{
-	int		i;
-
-	i = 1;
-	if (nb < 0)
-	{
-		nb = nb * -1;
-		i++;
-	}
-	while (nb > 15)
-	{
-		nb = nb / 16;
-		i++;
-	}
-	return (i);
-}
 
 /*
 ft_putnbr_hex - converts the input to its hexadecimal value, checking for case indicator (%x or %X).
@@ -60,11 +38,11 @@ It will print only 0x1 which is equivalent of 1 in decimal.
 -1: (unsigned int)(4294967296 + (-1)) = (unsigned int)(4294967295) = hexadecimal for 4294967295 is 0xffffffff. 
 It will print full 32 bit format: ffffffff, which is the same as UINT_MAX.
 |
-When bigger than 15, recursive call with a nb / 16.
+When bigger than 15, recursive call with a nb / 16. Increment len to update the characters writen.
 |
-write to stdout the value modulo 16 = result representing the index on hex string. 
+write to stdout the value modulo 16 = result representing the index on hex string. Increment len.
 |
-Return the lenght of the number measured by ft_nbrlen_hex
+Returns len to measure characters written.
 |
 END
 */
@@ -74,6 +52,7 @@ int	ft_putnbr_hex(int nb, char x)
 	int		len;
 	unsigned int	value;
 
+	len = 0;
 	hex = "0123456789abcdef";
 	if (x == 'X')
 		hex = "0123456789ABCDEF";
@@ -81,10 +60,9 @@ int	ft_putnbr_hex(int nb, char x)
 		value = (unsigned int)(4294967296 + nb);
 	else
 		value = (unsigned int)nb;
-
 	if (value >= 16)
-		ft_putnbr_hex(value / 16, x);
+		len += ft_putnbr_hex(value / 16, x);
 	write(1, &hex[value % 16], 1);
-	len = ft_nbrlen_hex(value);
+	len++;
 	return (len);
 }
