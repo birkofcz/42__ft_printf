@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:29:04 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/03 17:03:44 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/04 13:47:44 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,13 @@ int	main(void)
 	printf("\n%d characters printed.\n", nc_printed);
 
 	printf("\n\n6. [HEXADECIMAL TEST %%x or %%X]");
-	int hex = 12345;
+	int hex = 1;
 	int hex2 = 0;
-	int hex3 = -12345;
+	int hex3 = -1;
+	char hex4 = 'c';
+	/* int intmin = -2147483648;
+	int intmax = 2147483647; */
+	//char *hex5 = "Hello";
 
 
 	nc_printed = printf("\n\033[34mPRINTF\033[0m int hex:\033[34m %x \033[0m", hex);
@@ -132,11 +136,25 @@ int	main(void)
 	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int hex 2:\033[32m %X \033[0m", hex2);
 	printf("\n%d characters printed.\n", nc_printed);
 
-	nc_printed = printf("\033[34mPRINTF\033[0m pointer int hex 3:\033[34m %x \033[0m", hex3);
+	nc_printed = printf("\033[34mPRINTF\033[0m int hex 3:\033[34m %X \033[0m", hex3);
 	printf("\n%d characters printed.\n", nc_printed);
-	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int hex 3:\033[32m %x \033[0m", hex3);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int hex 3:\033[32m %X \033[0m", hex3);
 	printf("\n%d characters printed.\n", nc_printed);
 
+	nc_printed = printf("\033[34mPRINTF\033[0m char hex4:\033[34m %X \033[0m", hex4);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m char hex4:\033[32m %X \033[0m", hex4);
+	printf("\n%d characters printed.\n", nc_printed);
+
+	nc_printed = printf("\033[34mPRINTF\033[0m int intmin:\033[34m %X \033[0m", intmin);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int intmin:\033[32m %X \033[0m", intmin);
+	printf("\n%d characters printed.\n", nc_printed); 
+
+	nc_printed = printf("\033[34mPRINTF\033[0m int intmax:\033[34m %X \033[0m", intmax);
+	printf("\n%d characters printed.\n", nc_printed);
+	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m int intmax:\033[32m %X \033[0m", intmax);
+	printf("\n%d characters printed.\n", nc_printed); 
 	
 	return (0);
 }
