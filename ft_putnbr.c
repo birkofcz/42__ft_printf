@@ -6,16 +6,18 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:39:00 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/04 15:43:59 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/05 15:25:36 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-ft_putnbr - my putnbr function from Piscine. Using recursivity to parse and write numbers 
-with "write" function. 
+ft_putnbr - my putnbr function from Piscine. 
+Using recursivity to parse and write numbers with "write" function. 
+Incrementing int len for every number written to get the size.
 */
+
 int	ft_putnbr(int nb)
 {
 	int		len;

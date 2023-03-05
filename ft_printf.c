@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:18:37 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/03 17:00:50 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/05 15:24:16 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@
 */
 
 #include "ft_printf.h"
+
+/*
+ft_crossroad - crossroad to functions dependent on identifier after %.
+Writes the output and returns nc_printed.
+*/
 
 int	ft_crossroad(va_list args, char identifier)
 {
@@ -47,15 +52,21 @@ int	ft_crossroad(va_list args, char identifier)
 }
 /*
 -- ft_printf --
-Int type function, returns the number of characters printed to stdout (nc_printed). Size will
-differ by what is being printed after the % placeholder (string, char, number etc..).
-Every function taking care of it writes the the actual output to stdout and return the size all the way up to the ft_printf.
+Int type function, returns the number of characters 
+printed to stdout (nc_printed). 
+Size will differ by what is being printed after 
+the % placeholder (string, char, number etc..).
+Every function taking care of it writes the
+actual output to stdout and return the size all 
+the way up to the ft_printf.
+If no % - prints the string only with putchar.
 */
+
 int	ft_printf(const char *str, ...)
 {
-	va_list args;
-	int nc_printed;
-	int i;
+	va_list	args;
+	int		nc_printed;
+	int		i;
 
 	i = 0;
 	nc_printed = 0;
@@ -73,6 +84,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (nc_printed);
-	
-
 }
