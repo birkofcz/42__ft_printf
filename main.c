@@ -6,13 +6,16 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:29:04 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/06 11:52:05 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/06 14:09:32 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <limits.h>
 #include "ft_printf.h"
+
+int	ft_printf(const char *str, ...);
+
 
 /* TEST MAIN FOR FT_PRINTF PROJECT */
 int	main(void)

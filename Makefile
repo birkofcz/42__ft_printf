@@ -6,7 +6,7 @@
 #    By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/05 11:25:26 by sbenes            #+#    #+#              #
-#    Updated: 2023/03/05 13:38:01 by sbenes           ###   ########.fr        #
+#    Updated: 2023/03/06 13:54:00 by sbenes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,13 @@ SRC = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putptr.c ft_puthex.c f
 OBJ = $(SRC:.c=.o)
 NAME = libftprintf.a
 
+
 #clean
 RM = rm -f
 
+%.o: %.c 		
+			$(CC) $(CFLAGS) -c $< -o $@
+			
 all:			$(NAME)
 
 $(NAME):		$(OBJ)
