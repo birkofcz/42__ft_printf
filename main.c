@@ -6,15 +6,13 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:29:04 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/06 14:09:32 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/06 14:58:08 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <limits.h>
 #include "ft_printf.h"
-
-int	ft_printf(const char *str, ...);
 
 
 /* TEST MAIN FOR FT_PRINTF PROJECT */
@@ -75,7 +73,7 @@ int	main(void)
 	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m %%i 12345 =\033[32m %i \033[0m\n",12345);
 	ft_printf("%d printed.\n\n", nc_printed - 3);
 
-	nc_printed = printf("\033[34mPRINTF\033[0m %%d -12345\033[34m %d \033[0m\n", -12345);
+	nc_printed = printf("\033[34mPRINTF\033[0m %%d -12345 =\033[34m %d \033[0m\n", -12345);
 	ft_printf("%d printed.\n", nc_printed);
 	nc_printed = ft_printf("\033[32mFT_PRINTF\033[0m %%d -12345 =\033[32m %d \033[0m\n", -12345);
 	ft_printf("%d printed.\n\n", nc_printed - 3);
