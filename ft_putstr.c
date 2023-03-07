@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
+/*   By: sbenes <sbenes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:20:41 by sbenes            #+#    #+#             */
-/*   Updated: 2023/03/05 15:25:18 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/03/07 14:09:18 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,11 @@ int	ft_putstr(const char *s)
 		i++;
 	}
 	return (ft_strlen(s));
-}
+} 
+
+/*int	ft_putstr(const char *s)
+{
+	if (!s)
+		s = "(null)";
+	return (write(1, s, ft_strlen(s)));
+}*/
