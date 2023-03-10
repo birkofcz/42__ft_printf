@@ -32,6 +32,7 @@ if no string, needs to write "(null)".
 Returns the number of characters written through the ft_strlen
 */
 
+/*
 int	ft_putstr(const char *s)
 {
 	size_t	i;
@@ -46,10 +47,11 @@ int	ft_putstr(const char *s)
 	}
 	return (ft_strlen(s));
 } 
+*/
 
-/*int	ft_putstr(const char *s)
+int	ft_putstr(const char *s)
 {
 	if (!s)
 		s = "(null)";
 	return (write(1, s, ft_strlen(s)));
-}*/
+}
